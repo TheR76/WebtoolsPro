@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebtoolsPro- Image Tools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #a5b4fc;
+            --secondary: #8b5cf6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.96);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.5px;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        /* Hero Section */
+        .image-tools-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 50px;
+        }
+
+        .image-tools-hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .image-tools-hero p {
+            font-size: 18px;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        /* Tools Grid */
+        .image-tools-section {
+            padding: 40px 0 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-card-header {
+            height: 140px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card:nth-child(2) .tool-card-header {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .tool-card:nth-child(3) .tool-card-header {
+            background: linear-gradient(135deg, #fae8ff 0%, #f5d0fe 100%);
+        }
+
+        .tool-card:nth-child(4) .tool-card-header {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+        }
+
+        .tool-card:nth-child(5) .tool-card-header {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+        }
+
+        .tool-card:nth-child(6) .tool-card-header {
+            background: linear-gradient(135deg, #fef9c3 0%, #fef08a 100%);
+        }
+
+        .tool-icon {
+            font-size: 50px;
+            color: var(--primary);
+            z-index: 2;
+        }
+
+        .tool-card-header::after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        .tool-card-body {
+            padding: 25px;
+        }
+
+        .tool-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .tool-card p {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .tool-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .tool-button:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 80px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .image-tools-hero h1 {
+                font-size: 32px;
+            }
+            
+            .image-tools-hero p {
+                font-size: 16px;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-tools"></i>
+                    <span>WebtoolsPro</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">← Back to Home</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="image-tools-hero">
+        <div class="container">
+            <h1>Advanced Image Tools</h1>
+            <p>Enhance, convert, compress, and generate images with our powerful AI-powered tools. 100% free and secure.</p>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="image-tools-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Transform Your Images</h2>
+                <p>Professional-grade tools for creators, marketers, and developers</p>
+            </div>
+
+            <div class="tools-grid">
+                <!-- Image Compressor -->
+                <div class="tool-card">
+                    <div class="tool-card-header">
+                        <i class="fas fa-compress-alt tool-icon"></i>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>Image Compressor</h3>
+                        <p>Reduce image file size without visible quality loss. Supports JPG, PNG, WEBP.</p>
+                        <a href="img-compress.html" class="tool-button">Compress Now</a>
+                    </div>
+                </div>
+
+                <!-- Image Converter -->
+                <div class="tool-card">
+                    <div class="tool-card-header">
+                        <i class="fas fa-exchange-alt tool-icon"></i>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>Image Converter</h3>
+                        <p>Convert between JPG, PNG, WEBP, GIF, SVG, and more formats instantly.</p>
+                        <a href="img-convert.html" class="tool-button">Convert Now</a>
+                    </div>
+                </div>
+
+                <!-- Image Enhancer -->
+                <div class="tool-card">
+                    <div class="tool-card-header">
+                        <i class="fas fa-magic tool-icon"></i>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>AI Image Enhancer</h3>
+                        <p>Upscale low-quality images, remove noise, and enhance details using AI.</p>
+                        <a href="img-enhance.html" class="tool-button">Enhance Now</a>
+                    </div>
+                </div>
+
+                <!-- Background Remover -->
+                <div class="tool-card">
+                    <div class="tool-card-header">
+                        <i class="fas fa-cut tool-icon"></i>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>Background Remover</h3>
+                        <p>Automatically remove backgrounds with precision. Perfect for product photos.</p>
+                        <a href="bg-remover.html" class="tool-button">Remove BG</a>
+                    </div>
+                </div>
+
+                <!-- Image Generator -->
+                <div class="tool-card">
+                    <div class="tool-card-header">
+                        <i class="fas fa-robot tool-icon"></i>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>AI Image Generator</h3>
+                        <p>Create stunning images from text prompts using advanced AI models.</p>
+                        <a href="img-generator.html" class="tool-button">Generate Now</a>
+                    </div>
+                </div>
+
+                <!-- Photo Editor -->
+                <div class="tool-card">
+                    <div class="tool-card-header">
+                        <i class="fas fa-sliders-h tool-icon"></i>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>Photo Editor</h3>
+                        <p>Adjust brightness, contrast, saturation, and apply filters to your images.</p>
+                        <a href="photo-edit.html" class="tool-button">Edit Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>WebtoolsPro</h3>
+                    <p>Your all-in-one solution for professional online tools.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Image Tools</h3>
+                    <ul>
+                        <li><a href="#">Compressor</a></li>
+                        <li><a href="#">Converter</a></li>
+                        <li><a href="#">Enhancer</a></li>
+                        <li><a href="#">Generator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 ProTools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+  </html>
